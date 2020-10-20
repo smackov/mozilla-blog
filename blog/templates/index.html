@@ -1,0 +1,18 @@
+{% extends 'base_generic.html' %}
+
+
+{% block title %}
+    <title>Index page</title>
+{% endblock title %}
+
+
+{% block content %}
+    <h1>Hello, it's blog!</h1>
+    <ul>
+        <li>Number of blogs: {{ num_blogs }}</li>
+        <li>Number of bloggers: {{ num_bloggers }}</li>
+        <li>Number of comments: {{ num_comments }}</li>
+    </ul>
+{% endblock content %}
+    
+    

@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>{{ blogger.first_name }} {{ blogger.last_name }}</h1>
+
+  <p><strong>Date of born:</strong> {{ blogger.date_of_birth }}</a></p>
+  <p><strong>Date of death:</strong> {{ blogger.date_of_death }}</p>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Author's blogs:</h4>
+    
+    {% if bloggers_blogs %}
+    <ul>
+        {% for blog in bloggers_blogs %}
+            <li>
+                <a href="{{ blog.get_absolute_url }}">{{ blog.name }}</a> - {{ blog.post_date }}
+            </li>
+        {% endfor %}
+    </ul>    
+    {% else %}
+        <p>Blogger hasn't written any blog =(</p>
+    {% endif %}
+  </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>Blog List</h1>
+  {% if blog_list %}
+  <ul>
+    {% for blog in blog_list %}
+      <li>
+        <a href="{{ blog.get_absolute_url }}">{{ blog.name }}</a> ({{ blog.blogger }}) - {{ blog.post_date }}
+        <!-- TODO: define permissions -->
+        <!-- {% if perms.catalog.can_create_blogs %} -->
+        <a href="{% url 'blog-update' blog.id %}" class="btn btn-outline-primary btn-sm">Change</a>
+        <a href="{% url 'blog-delete' blog.id %}" class="btn btn-outline-primary btn-sm">Delete</a>
+        <!-- {% endif %} -->
+
+      </li>
+    {% endfor %}
+  </ul>
+
+  {% if perms.catalog.can_create_authors %}
+  <a href="{% url 'blog-create' %}" class="btn btn-outline-primary btn-sm">Add new blog!</a>
+  {% endif %}
+  {% else %}
+    <p>There are no blogs in the library</p>
+  {% endif %}
+    
+{% endblock content %}
