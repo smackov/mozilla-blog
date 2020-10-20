@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Blog, Blogger, Comment
+from .models import Blog, Blogger, BlogComment
 
 
 @admin.register(Blog)
@@ -10,7 +10,7 @@ class BlogAdmin(admin.ModelAdmin):
 
 @admin.register(Blogger)
 class BloggerAdmin(admin.ModelAdmin):
-    list_display = ('last_name', 'first_name', 'date_of_birth', 'date_of_death')
-    fields = ['first_name', 'last_name', ('date_of_birth', 'date_of_death')]
+    list_display = ('user', 'date_of_birth', 'date_of_death')
+    fields = ['user', ('date_of_birth', 'date_of_death')]
 
 

@@ -1,7 +1,7 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>{{ blogger.first_name }} {{ blogger.last_name }}</h1>
+  <h1>{{ blogger.user.username }}</h1>
 
   <p><strong>Date of born:</strong> {{ blogger.date_of_birth }}</a></p>
   <p><strong>Date of death:</strong> {{ blogger.date_of_death }}</p>

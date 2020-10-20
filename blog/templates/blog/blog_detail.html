@@ -3,11 +3,29 @@
 {% block content %}
   <h1>Name: {{ blog.name }}</h1>
 
-  <p><strong>Author:</strong> <a href="{% url 'blogger-detail' blog.blogger.id %}">{{ blog.blogger }}</a></p>
+  <p><strong>Author:</strong> <a href="{% url 'blogger-detail' blog.blogger.id %}">{{ blog.blogger.user.username }}</a></p>
   <p><strong>Post date:</strong> {{ blog.post_date }}</p>
   <p><strong>Text:</strong> {{ blog.text }}</p>
 
   <div style="margin-left:20px;margin-top:20px">
     <h4>Comments</h4>
+    
+    {% if comments %}
+      <ul>
+        
+        {% for comment in comments %}
+          <li>
+            <p>{{ comment.author }} - {{ comment.post_date }}</p>
+            <p>{{ comment.text }}</p>
+          </li>
+        {% endfor %}
+
+      </ul>
+    {% else %}
+      <p>There aren't any comments yet</p>
+    {% endif %}
+      
+
+    <a href="{% url 'blog-comment-create' blog.id %}">Add comment!</a>
   </div>
 {% endblock %}

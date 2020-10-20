@@ -12,12 +12,10 @@ urlpatterns += [
     path('blog/<int:pk>/update/', views.BlogUpdateView.as_view(), name='blog-update'),
     path('blog/create/', views.BlogCreateView.as_view(), name='blog-create'),
     path('blog/<int:pk>/delete/', views.BlogDeleteView.as_view(), name='blog-delete'),
+    path('blog/<int:pk>/create_comment/', views.BlogCommentCreateView.as_view(), name='blog-comment-create'),
 ]
 
 urlpatterns += [
     path('bloggers/', views.BloggerListView.as_view(), name='bloggers'),
     path('blogger/<int:pk>/', views.BloggerDetailView.as_view(), name="blogger-detail"),
-    path('blogger/<int:pk>/update/', views.BloggerUpdateView.as_view(), name='blogger-update'),
-    path('blogger/create/', views.BloggerCreateView.as_view(), name='blogger-create'),
-    path('blogger/<int:pk>/delete/', views.BloggerDeleteView.as_view(), name='blogger-delete'),
 ]
