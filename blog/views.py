@@ -36,7 +36,7 @@ class BlogDetailView(generic.DetailView, LoginRequiredMixin):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["comments"] = BlogComment.objects.filter(author=self.request.user).filter(blog=self.kwargs['pk'])
+        context["comments"] = BlogComment.objects.filter(blog=self.kwargs['pk'])
         return context
     
     
