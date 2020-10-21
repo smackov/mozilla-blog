@@ -26,12 +26,12 @@ def index(request):
 
 
 # !Blogs view
-class BlogListView(generic.ListView, LoginRequiredMixin):
+class BlogListView(LoginRequiredMixin, generic.ListView):
     model = Blog
     paginate_by = 2
     
 
-class BlogDetailView(generic.DetailView, LoginRequiredMixin):
+class BlogDetailView(LoginRequiredMixin, generic.DetailView):
     model = Blog
     
     def get_context_data(self, **kwargs):
@@ -63,12 +63,12 @@ class BlogDeleteView(LoginRequiredMixin, DeleteView):
     
  
 # !Bloggers view   
-class BloggerListView(generic.ListView, LoginRequiredMixin):
+class BloggerListView(LoginRequiredMixin, generic.ListView):
     model = Blogger
     paginate_by = 2
 
 
-class BloggerDetailView(generic.DetailView, LoginRequiredMixin):
+class BloggerDetailView(LoginRequiredMixin, generic.DetailView):
     model = Blogger
     
     def get_context_data(self, **kwargs):
@@ -78,7 +78,7 @@ class BloggerDetailView(generic.DetailView, LoginRequiredMixin):
         return context
     
 # !Comments
-class BlogCommentCreateView(CreateView, LoginRequiredMixin):
+class BlogCommentCreateView(LoginRequiredMixin, CreateView):
     model = BlogComment
     fields = ['text']
     
